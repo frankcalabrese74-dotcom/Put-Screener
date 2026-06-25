@@ -68,7 +68,7 @@ footer{text-align:center;color:var(--dim);font-size:10px;
   <h1>◆ PUT PREMIUM SCREENER</h1>
   <div class="meta">
     
-    Updated: <span>2026-06-24  10:51  ET</span>
+    Updated: <span>2026-06-25  11:10  ET</span>
   </div>
   <div class="badges">
     <div class="badge delay">Yahoo Finance (delayed)</div>
@@ -78,7 +78,7 @@ footer{text-align:center;color:var(--dim);font-size:10px;
 
 <div class="tab-bar">
   
-  <button class="tab-btn active" onclick="switchTab('port')">💼 Portfolio (21 open)</button>
+  <button class="tab-btn active" onclick="switchTab('port')">💼 Portfolio (30 open)</button>
 </div>
 
 <!-- ═══════ SCAN TAB ═══════ -->
@@ -115,11 +115,11 @@ footer{text-align:center;color:var(--dim);font-size:10px;
 <!-- ═══════ PORTFOLIO TAB ═══════ -->
 <div class="tab-panel active" id="tab-port">
   <div class="sumbar">
-    <div class="stat">Open Positions <div class="v">21</div></div>
+    <div class="stat">Open Positions <div class="v">30</div></div>
     <div class="stat">Closed/Expired <div class="v">1</div></div>
     <div class="stat">Total P&amp;L
-      <div class="v pos">$+16.00</div></div>
-    <div class="stat">Winning <div class="v">7 / 21</div></div>
+      <div class="v pos">$+1,170.50</div></div>
+    <div class="stat">Winning <div class="v">13 / 30</div></div>
   </div>
   <div class="fbar">
     <label>Symbol: <input type="text" id="fSym" style="width:80px" placeholder="e.g. NVDA"></label>
@@ -142,27 +142,36 @@ footer{text-align:center;color:var(--dim);font-size:10px;
   <table id="ptbl">
   <thead><tr><th onclick="sortTable('port',0)">Symbol</th><th onclick="sortTable('port',1)">Strike</th><th onclick="sortTable('port',2)">Expiry</th><th onclick="sortTable('port',3)">DTE</th><th onclick="sortTable('port',4)">Opened</th><th onclick="sortTable('port',5)">Prem Open</th><th onclick="sortTable('port',6)">Prem Now</th><th onclick="sortTable('port',7)">P&L $</th><th onclick="sortTable('port',8)">P&L %</th><th onclick="sortTable('port',9)">Spot</th><th onclick="sortTable('port',10)">Status</th></tr></thead>
   <tbody id="ptbody">
-  <tr><td>INTC</td><td>$104</td><td>2026-07-10</td><td>16</td><td>2026-06-22</td><td>$1.22</td><td>$1.43</td><td>$-21.00</td><td>-1.81%</td><td>$135.82</td><td>OPEN</td></tr>
-<tr style="background:#1a0808"><td>AMD</td><td>$410</td><td>2026-07-10</td><td>16</td><td>2026-06-22</td><td>$2.38</td><td>$3.15</td><td>$-76.50</td><td>-1.76%</td><td>$522.48</td><td>OPEN</td></tr>
-<tr><td>TSLA</td><td>$305</td><td>2026-07-10</td><td>16</td><td>2026-06-22</td><td>$0.48</td><td>$0.59</td><td>$-11.00</td><td>-0.36%</td><td>$382.31</td><td>OPEN</td></tr>
-<tr><td>NVDA</td><td>$160</td><td>2026-07-10</td><td>16</td><td>2026-06-22</td><td>$0.16</td><td>$0.18</td><td>$-2.00</td><td>-0.12%</td><td>$200.99</td><td>OPEN</td></tr>
-<tr><td>QQQ</td><td>$555</td><td>2026-07-10</td><td>16</td><td>2026-06-22</td><td>$0.28</td><td>$0.44</td><td>$-16.00</td><td>-0.29%</td><td>$718.43</td><td>OPEN</td></tr>
-<tr><td>QCOM</td><td>$155</td><td>2026-07-17</td><td>23</td><td>2026-06-23</td><td>$1.81</td><td>$2.27</td><td>$-46.50</td><td>-2.69%</td><td>$197.60</td><td>OPEN</td></tr>
-<tr style="background:#051a05"><td>AMD</td><td>$390</td><td>2026-07-17</td><td>23</td><td>2026-06-23</td><td>$3.77</td><td>$3.35</td><td>$+42.00</td><td>+0.98%</td><td>$522.48</td><td>OPEN</td></tr>
-<tr><td>SLV</td><td>$42</td><td>2026-07-17</td><td>23</td><td>2026-06-23</td><td>$0.18</td><td>$0.29</td><td>$-11.50</td><td>-2.63%</td><td>$53.31</td><td>OPEN</td></tr>
-<tr style="background:#051a05"><td>AMZN</td><td>$200</td><td>2026-07-17</td><td>23</td><td>2026-06-23</td><td>$0.49</td><td>$0.40</td><td>$+9.50</td><td>+0.46%</td><td>$239.44</td><td>OPEN</td></tr>
-<tr><td>TSLA</td><td>$290</td><td>2026-07-17</td><td>23</td><td>2026-06-23</td><td>$0.68</td><td>$0.73</td><td>$-5.50</td><td>-0.19%</td><td>$382.31</td><td>OPEN</td></tr>
-<tr style="background:#051a05"><td>NVDA</td><td>$150</td><td>2026-07-17</td><td>23</td><td>2026-06-23</td><td>$0.25</td><td>$0.22</td><td>$+3.00</td><td>+0.20%</td><td>$200.99</td><td>OPEN</td></tr>
-<tr style="background:#051a05"><td>QQQ</td><td>$540</td><td>2026-07-17</td><td>23</td><td>2026-06-23</td><td>$0.76</td><td>$0.61</td><td>$+14.50</td><td>+0.26%</td><td>$718.43</td><td>OPEN</td></tr>
-<tr style="background:#051a05"><td>MU</td><td>$770</td><td>2026-07-17</td><td>23</td><td>2026-06-24</td><td>$19.75</td><td>$18.27</td><td>$+147.50</td><td>+1.52%</td><td>$1056.47</td><td>OPEN</td></tr>
-<tr><td>QCOM</td><td>$145</td><td>2026-07-17</td><td>23</td><td>2026-06-24</td><td>$1.06</td><td>$1.15</td><td>$-8.50</td><td>-0.55%</td><td>$197.60</td><td>OPEN</td></tr>
-<tr><td>AVGO</td><td>$290</td><td>2026-07-17</td><td>23</td><td>2026-06-24</td><td>$0.76</td><td>$0.80</td><td>$-3.50</td><td>-0.12%</td><td>$384.37</td><td>OPEN</td></tr>
-<tr><td>TSLA</td><td>$285</td><td>2026-07-17</td><td>23</td><td>2026-06-24</td><td>$0.64</td><td>$0.65</td><td>$-1.00</td><td>-0.03%</td><td>$382.61</td><td>OPEN</td></tr>
-<tr><td>NVDA</td><td>$150</td><td>2026-07-17</td><td>23</td><td>2026-06-24</td><td>$0.21</td><td>$0.22</td><td>$-1.00</td><td>-0.07%</td><td>$200.99</td><td>OPEN</td></tr>
-<tr style="background:#051a05"><td>QQQ</td><td>$535</td><td>2026-07-17</td><td>23</td><td>2026-06-24</td><td>$0.61</td><td>$0.56</td><td>$+5.50</td><td>+0.10%</td><td>$718.43</td><td>OPEN</td></tr>
-<tr style="background:#051a05"><td>META</td><td>$420</td><td>2026-07-17</td><td>23</td><td>2026-06-24</td><td>$0.30</td><td>$0.23</td><td>$+7.50</td><td>+0.18%</td><td>$564.06</td><td>OPEN</td></tr>
-<tr><td>GLD</td><td>$275</td><td>2026-07-17</td><td>23</td><td>2026-06-24</td><td>$0.12</td><td>$0.21</td><td>$-9.50</td><td>-0.34%</td><td>$368.14</td><td>OPEN</td></tr>
-<tr><td>COST</td><td>$720</td><td>2026-07-17</td><td>23</td><td>2026-06-24</td><td>$0.22</td><td>$0.22</td><td>$+0.00</td><td>+0.00%</td><td>$958.08</td><td>OPEN</td></tr>
+  <tr><td>INTC</td><td>$104</td><td>2026-07-10</td><td>15</td><td>2026-06-22</td><td>$1.22</td><td>$1.55</td><td>$-33.50</td><td>-2.88%</td><td>$130.62</td><td>OPEN</td></tr>
+<tr style="background:#1a0808"><td>AMD</td><td>$410</td><td>2026-07-10</td><td>15</td><td>2026-06-22</td><td>$2.38</td><td>$3.23</td><td>$-84.50</td><td>-1.95%</td><td>$519.81</td><td>OPEN</td></tr>
+<tr><td>TSLA</td><td>$305</td><td>2026-07-10</td><td>15</td><td>2026-06-22</td><td>$0.48</td><td>$0.60</td><td>$-12.00</td><td>-0.39%</td><td>$375.56</td><td>OPEN</td></tr>
+<tr><td>NVDA</td><td>$160</td><td>2026-07-10</td><td>15</td><td>2026-06-22</td><td>$0.16</td><td>$0.28</td><td>$-11.50</td><td>-0.71%</td><td>$195.92</td><td>OPEN</td></tr>
+<tr><td>QQQ</td><td>$555</td><td>2026-07-10</td><td>15</td><td>2026-06-22</td><td>$0.28</td><td>$0.37</td><td>$-9.00</td><td>-0.16%</td><td>$713.85</td><td>OPEN</td></tr>
+<tr style="background:#051a05"><td>QCOM</td><td>$155</td><td>2026-07-17</td><td>22</td><td>2026-06-23</td><td>$1.81</td><td>$0.93</td><td>$+88.00</td><td>+5.08%</td><td>$205.18</td><td>OPEN</td></tr>
+<tr style="background:#051a05"><td>AMD</td><td>$390</td><td>2026-07-17</td><td>22</td><td>2026-06-23</td><td>$3.77</td><td>$3.55</td><td>$+22.00</td><td>+0.51%</td><td>$519.81</td><td>OPEN</td></tr>
+<tr><td>SLV</td><td>$42</td><td>2026-07-17</td><td>22</td><td>2026-06-23</td><td>$0.18</td><td>$0.27</td><td>$-9.00</td><td>-2.05%</td><td>$52.39</td><td>OPEN</td></tr>
+<tr><td>AMZN</td><td>$200</td><td>2026-07-17</td><td>22</td><td>2026-06-23</td><td>$0.49</td><td>$0.68</td><td>$-18.50</td><td>-0.90%</td><td>$228.87</td><td>OPEN</td></tr>
+<tr><td>TSLA</td><td>$290</td><td>2026-07-17</td><td>22</td><td>2026-06-23</td><td>$0.68</td><td>$0.76</td><td>$-7.50</td><td>-0.25%</td><td>$375.56</td><td>OPEN</td></tr>
+<tr><td>NVDA</td><td>$150</td><td>2026-07-17</td><td>22</td><td>2026-06-23</td><td>$0.25</td><td>$0.27</td><td>$-1.50</td><td>-0.10%</td><td>$195.92</td><td>OPEN</td></tr>
+<tr style="background:#051a05"><td>QQQ</td><td>$540</td><td>2026-07-17</td><td>22</td><td>2026-06-23</td><td>$0.76</td><td>$0.58</td><td>$+18.00</td><td>+0.33%</td><td>$713.85</td><td>OPEN</td></tr>
+<tr style="background:#051a05"><td>MU</td><td>$770</td><td>2026-07-17</td><td>22</td><td>2026-06-24</td><td>$19.75</td><td>$8.75</td><td>$+1,100.00</td><td>+11.37%</td><td>$1187.86</td><td>OPEN</td></tr>
+<tr style="background:#051a05"><td>QCOM</td><td>$145</td><td>2026-07-17</td><td>22</td><td>2026-06-24</td><td>$1.06</td><td>$0.52</td><td>$+54.00</td><td>+3.47%</td><td>$205.18</td><td>OPEN</td></tr>
+<tr style="background:#051a05"><td>AVGO</td><td>$290</td><td>2026-07-17</td><td>22</td><td>2026-06-24</td><td>$0.76</td><td>$0.75</td><td>$+1.00</td><td>+0.03%</td><td>$381.48</td><td>OPEN</td></tr>
+<tr><td>TSLA</td><td>$285</td><td>2026-07-17</td><td>22</td><td>2026-06-24</td><td>$0.64</td><td>$0.66</td><td>$-2.00</td><td>-0.07%</td><td>$375.56</td><td>OPEN</td></tr>
+<tr><td>NVDA</td><td>$150</td><td>2026-07-17</td><td>22</td><td>2026-06-24</td><td>$0.21</td><td>$0.27</td><td>$-5.50</td><td>-0.36%</td><td>$195.92</td><td>OPEN</td></tr>
+<tr style="background:#051a05"><td>QQQ</td><td>$535</td><td>2026-07-17</td><td>22</td><td>2026-06-24</td><td>$0.61</td><td>$0.54</td><td>$+7.00</td><td>+0.13%</td><td>$713.85</td><td>OPEN</td></tr>
+<tr><td>META</td><td>$420</td><td>2026-07-17</td><td>22</td><td>2026-06-24</td><td>$0.30</td><td>$0.30</td><td>$-0.50</td><td>-0.01%</td><td>$551.47</td><td>OPEN</td></tr>
+<tr><td>GLD</td><td>$275</td><td>2026-07-17</td><td>22</td><td>2026-06-24</td><td>$0.12</td><td>$0.15</td><td>$-3.50</td><td>-0.13%</td><td>$368.60</td><td>OPEN</td></tr>
+<tr style="background:#051a05"><td>COST</td><td>$720</td><td>2026-07-17</td><td>22</td><td>2026-06-24</td><td>$0.22</td><td>$0.13</td><td>$+9.00</td><td>+0.12%</td><td>$943.01</td><td>OPEN</td></tr>
+<tr><td>TSLA</td><td>$362</td><td>2026-07-01</td><td>6</td><td>2026-06-24</td><td>$2.44</td><td>$2.62</td><td>$-17.50</td><td>-0.30%</td><td>$375.45</td><td>OPEN</td></tr>
+<tr style="background:#051a05"><td>MU</td><td>$860</td><td>2026-07-17</td><td>22</td><td>2026-06-25</td><td>$16.32</td><td>$16.02</td><td>$+29.50</td><td>+0.29%</td><td>$1187.86</td><td>OPEN</td></tr>
+<tr><td>INTC</td><td>$98</td><td>2026-07-17</td><td>22</td><td>2026-06-25</td><td>$1.55</td><td>$1.57</td><td>$-2.50</td><td>-0.22%</td><td>$130.58</td><td>OPEN</td></tr>
+<tr style="background:#051a05"><td>AMD</td><td>$380</td><td>2026-07-17</td><td>22</td><td>2026-06-25</td><td>$3.37</td><td>$2.96</td><td>$+40.50</td><td>+0.98%</td><td>$519.76</td><td>OPEN</td></tr>
+<tr><td>WYNN</td><td>$75</td><td>2026-07-17</td><td>22</td><td>2026-06-25</td><td>$0.23</td><td>$0.23</td><td>$+0.00</td><td>+0.00%</td><td>$102.61</td><td>OPEN</td></tr>
+<tr style="background:#051a05"><td>TSLA</td><td>$280</td><td>2026-07-17</td><td>22</td><td>2026-06-25</td><td>$0.70</td><td>$0.60</td><td>$+10.00</td><td>+0.35%</td><td>$375.45</td><td>OPEN</td></tr>
+<tr style="background:#051a05"><td>NVDA</td><td>$145</td><td>2026-07-17</td><td>22</td><td>2026-06-25</td><td>$0.26</td><td>$0.23</td><td>$+3.50</td><td>+0.24%</td><td>$195.85</td><td>OPEN</td></tr>
+<tr style="background:#051a05"><td>GLD</td><td>$275</td><td>2026-07-17</td><td>22</td><td>2026-06-25</td><td>$0.22</td><td>$0.15</td><td>$+6.50</td><td>+0.23%</td><td>$368.60</td><td>OPEN</td></tr>
+<tr><td>COST</td><td>$700</td><td>2026-07-17</td><td>22</td><td>2026-06-25</td><td>$0.12</td><td>$0.12</td><td>$+0.00</td><td>+0.00%</td><td>$943.01</td><td>OPEN</td></tr>
 
   </tbody></table></div><div class="section-hdr">▌ CLOSED / EXPIRED</div><div class="wrap"><table><thead><tr><th onclick="sortTable('port',0)">Symbol</th><th onclick="sortTable('port',1)">Strike</th><th onclick="sortTable('port',2)">Expiry</th><th onclick="sortTable('port',3)">DTE</th><th onclick="sortTable('port',4)">Opened</th><th onclick="sortTable('port',5)">Prem Open</th><th onclick="sortTable('port',6)">Prem Now</th><th onclick="sortTable('port',7)">P&L $</th><th onclick="sortTable('port',8)">P&L %</th><th onclick="sortTable('port',9)">Spot</th><th onclick="sortTable('port',10)">Status</th></tr></thead><tbody>
   <tr><td>AVGO</td><td>$295</td><td>2026-07-10</td><td>18</td><td>2026-06-22</td><td>$0.46</td><td>$0.44</td><td>$+2.00</td><td>+0.07%</td><td>$396.20</td><td>CLOSED</td></tr>
@@ -171,7 +180,7 @@ footer{text-align:center;color:var(--dim);font-size:10px;
 </div>
 
 <footer>
-  Put Premium Screener &nbsp;·&nbsp; Yahoo Finance (delayed) &nbsp;·&nbsp; 2026-06-24  10:51  ET &nbsp;·&nbsp;
+  Put Premium Screener &nbsp;·&nbsp; Yahoo Finance (delayed) &nbsp;·&nbsp; 2026-06-25  11:10  ET &nbsp;·&nbsp;
   <em>Not financial advice.</em>
 </footer>
 
