@@ -6,61 +6,67 @@
 <title>Put Premium Screener</title>
 <style>
 :root{--bg:#070d1a;--card:#0d1526;--card2:#111d35;--fg:#c8d8f0;--dim:#4a6080;
-      --gold:#ffd84d;--acc:#00e5ff;--warn:#ff6b6b;--green:#00ffaa;}
+      --gold:#ffd84d;--acc:#00e5ff;--warn:#ff6b6b;--green:#00ffaa;--purple:#c084fc;}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--fg);font-family:'Courier New',monospace;font-size:13px;}
 header{background:#050810;padding:12px 22px;border-bottom:1px solid #0a2040;
-        display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+       display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
 h1{color:var(--warn);font-size:18px;letter-spacing:2px;}
 .meta{color:var(--dim);font-size:11px;line-height:1.6;}
 .meta span{color:var(--gold);}
 .badges{display:flex;gap:8px;margin-left:auto;flex-wrap:wrap;}
 .badge{background:#0d1526;border:1px solid var(--dim);padding:3px 10px;
-        font-size:11px;border-radius:3px;}
+       font-size:11px;border-radius:3px;}
 .badge.live{border-color:var(--green);color:var(--green);}
 .badge.delay{border-color:var(--gold);color:var(--gold);}
-/* ── tabs ── */
-.tab-bar{background:var(--card);border-bottom:1px solid #0a2040;
-          display:flex;gap:0;padding:0 16px;}
-.tab-btn{background:transparent;border:none;border-bottom:2px solid transparent;
-          color:var(--dim);padding:10px 20px;cursor:pointer;font-family:inherit;
-          font-size:12px;font-weight:bold;letter-spacing:1px;}
+/* tabs */
+.tab-bar{background:var(--card);border-bottom:2px solid #0a2040;
+         display:flex;gap:0;padding:0 14px;}
+.tab-btn{background:transparent;border:none;border-bottom:3px solid transparent;
+         color:var(--dim);padding:10px 18px;cursor:pointer;font-family:inherit;
+         font-size:12px;font-weight:bold;letter-spacing:1px;transition:.15s;}
 .tab-btn:hover{color:var(--fg);}
-.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold);}
+.tab-btn.active{border-bottom-color:var(--gold);color:var(--gold);}
 .tab-panel{display:none;} .tab-panel.active{display:block;}
-/* ── summary bar ── */
+/* summary bar */
 .sumbar{background:var(--card);padding:8px 18px;border-bottom:1px solid #0a2040;
-         display:flex;gap:24px;flex-wrap:wrap;}
+        display:flex;gap:22px;flex-wrap:wrap;}
 .stat{font-size:11px;} .stat .v{color:var(--gold);font-weight:bold;font-size:13px;}
-.stat .pos{color:var(--green);} .stat .neg{color:var(--warn);}
-/* ── filter bar ── */
-.fbar{background:var(--card2);padding:7px 16px;border-bottom:1px solid #0a2040;
-       display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+.pos{color:var(--green);} .neg{color:var(--warn);}
+/* filter bar */
+.fbar{background:var(--card2);padding:7px 14px;border-bottom:1px solid #0a2040;
+      display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
 .fbar label{color:var(--dim);font-size:11px;}
-.fbar input{background:#050810;border:1px solid var(--dim);color:var(--gold);
-             padding:3px 6px;width:60px;font-family:inherit;font-size:11px;}
+.fbar input,.fbar select{background:#050810;border:1px solid var(--dim);color:var(--gold);
+             padding:3px 6px;font-family:inherit;font-size:11px;}
+.fbar input{width:62px;} .fbar select{width:90px;}
 .fbar button{background:var(--card);border:1px solid var(--acc);color:var(--acc);
-              padding:3px 10px;cursor:pointer;font-family:inherit;font-size:11px;}
+             padding:3px 10px;cursor:pointer;font-family:inherit;font-size:11px;}
 .fbar button:hover{background:var(--acc);color:#050810;}
-#sRowCount,#pRowCount{color:var(--dim);font-size:11px;margin-left:auto;}
-/* ── table ── */
+.rcount{color:var(--dim);font-size:11px;margin-left:auto;}
+/* table */
 .wrap{overflow-x:auto;padding:8px 12px;}
 table{border-collapse:collapse;min-width:100%;white-space:nowrap;}
 th{background:#0a1428;color:var(--gold);padding:7px 9px;text-align:center;
-    cursor:pointer;position:sticky;top:0;font-size:11px;letter-spacing:1px;
-    border-bottom:2px solid #0a2040;}
+   cursor:pointer;position:sticky;top:0;font-size:11px;letter-spacing:1px;
+   border-bottom:2px solid #0a2040;}
 th:hover{color:var(--acc);}
 td{padding:5px 9px;text-align:center;border-bottom:1px solid #0a2040;}
 tr:hover td{background:#111d35!important;}
-.section-hdr{background:#0a1a0a;color:var(--green);padding:7px 14px;
-              font-size:11px;font-weight:bold;letter-spacing:1px;
-              border-top:1px solid #0a2040;border-bottom:1px solid #0a2040;}
+.sec-hdr{background:#081a14;color:var(--green);padding:6px 14px;
+         font-size:11px;font-weight:bold;letter-spacing:1px;
+         border-top:1px solid #0a2040;border-bottom:1px solid #0a2040;}
+/* charts */
+.chart-area{padding:14px 18px;}
+.chart-title{color:var(--acc);font-size:12px;font-weight:bold;
+             letter-spacing:1px;margin-bottom:10px;}
+svg.chart{width:100%;border-radius:4px;background:#07101c;}
 .legend{padding:7px 16px;display:flex;gap:16px;flex-wrap:wrap;
-         border-top:1px solid #0a2040;}
+        border-top:1px solid #0a2040;}
 .leg{font-size:10px;display:flex;align-items:center;gap:5px;}
 .sw{width:12px;height:12px;border-radius:2px;}
 footer{text-align:center;color:var(--dim);font-size:10px;
-        padding:12px;border-top:1px solid #0a2040;}
+       padding:12px;border-top:1px solid #0a2040;}
 </style>
 </head>
 <body>
@@ -68,167 +74,121 @@ footer{text-align:center;color:var(--dim);font-size:10px;
   <h1>◆ PUT PREMIUM SCREENER</h1>
   <div class="meta">
     
-    Updated: <span>2026-06-27  08:34  ET</span>
+    Updated: <span>2026-06-27  11:57  ET</span>
   </div>
   <div class="badges">
     <div class="badge delay">Yahoo Finance (delayed)</div>
     <div class="badge">SHORT PUT</div>
   </div>
 </header>
-
-<div class="tab-bar">
-  <button class="tab-btn active" onclick="switchTab('scan')">📊 Scan Results (1)</button>
-  
-</div>
-
-<!-- ═══════ SCAN TAB ═══════ -->
+<div class="tab-bar"><button class="tab-btn active" onclick="switchTab('scan')" style="border-bottom-color:var(--acc);color:var(--acc)">📊 Scan (2)</button></div>
 <div class="tab-panel active" id="tab-scan">
-  <div class="sumbar">
-    <div class="stat">Tickers <div class="v">1</div></div>
-    <div class="stat">ROM≥12% <div class="v">1</div></div>
-    <div class="stat">RAY≥5 <div class="v">1</div></div>
-    <div class="stat">Source <div class="v">Yahoo Finance (delayed)</div></div>
-  </div>
-  <div class="fbar">
-    <label>Min ROM%:<input type="number" id="fRom" value="0" min="0"></label>
-    <label>Min RAY: <input type="number" id="fRay" value="0" min="0" step="0.1"></label>
-    <label>Max Sprd%:<input type="number" id="fSprd" value="100" min="0"></label>
-    <button onclick="applyS()">▶ APPLY</button>
-    <button onclick="resetS()">✕ RESET</button>
-    <span id="sRowCount"></span>
-  </div>
-  <div class="wrap">
-  <table id="stbl">
-  <thead><tr><th onclick="sortTable('scan',0)">Symbol</th><th onclick="sortTable('scan',1)">Price</th><th onclick="sortTable('scan',2)">Strike</th><th onclick="sortTable('scan',3)">Expiry</th><th onclick="sortTable('scan',4)">DTE</th><th onclick="sortTable('scan',5)">OTM %</th><th onclick="sortTable('scan',6)">Delta</th><th onclick="sortTable('scan',7)">IV %</th><th onclick="sortTable('scan',8)">Bid</th><th onclick="sortTable('scan',9)">Ask</th><th onclick="sortTable('scan',10)">Sprd %</th><th onclick="sortTable('scan',11)">Premium</th><th onclick="sortTable('scan',12)">ROM %</th><th onclick="sortTable('scan',13)">RAY</th><th onclick="sortTable('scan',14)">Vol</th><th onclick="sortTable('scan',15)">Bias</th><th onclick="sortTable('scan',16)">RSI</th><th onclick="sortTable('scan',17)">Earnings</th></tr></thead>
-  <tbody id="stbody"><tr style="background:#051a05"><td>QQQ</td><td>$706.14</td><td>$530.00</td><td>2026-07-24</td><td>27</td><td>-24.9%</td><td>-0.015</td><td>51.1%</td><td>$0.64</td><td>$0.70</td><td>9.0%</td><td>$0.67</td><td>16.88%</td><td>24.076</td><td>54</td><td>NEUTRAL</td><td>46.7</td><td>N/A</td></tr>
-</tbody>
-  </table>
-  </div>
-  <div class="legend">
-    <div class="leg"><div class="sw" style="background:#051a05"></div>RAY≥5</div>
-    <div class="leg"><div class="sw" style="background:#051a10"></div>ROM≥30%</div>
-    <div class="leg"><div class="sw" style="background:#111800"></div>ROM≥12%</div>
-    <div class="leg"><div class="sw" style="background:#1a001a"></div>Sprd&gt;30%</div>
-    <div class="leg"><div class="sw" style="background:#1a0800"></div>Earnings soon</div>
-  </div>
+<div class="sumbar">
+  <div class="stat">Tickers <div class="v">2</div></div>
+  <div class="stat">ROM≥12% <div class="v">2</div></div>
+  <div class="stat">RAY≥5 <div class="v">2</div></div>
+  <div class="stat">Data <div class="v" style="color:var(--gold)">Yahoo Finance (delayed)</div></div>
 </div>
-
-<!-- ═══════ PORTFOLIO TAB ═══════ -->
-<div class="tab-panel " id="tab-port">
-  <div class="sumbar">
-    <div class="stat">Open Positions <div class="v">0</div></div>
-    <div class="stat">Closed/Expired <div class="v">0</div></div>
-    <div class="stat">Total P&amp;L
-      <div class="v pos">$+0.00</div></div>
-    <div class="stat">Winning <div class="v">0 / 0</div></div>
-  </div>
-  <div class="fbar">
-    <label>Symbol: <input type="text" id="fSym" style="width:80px" placeholder="e.g. NVDA"></label>
-    <label>Status:
-      <select id="fStatus" style="background:#050810;border:1px solid var(--dim);
-              color:var(--gold);padding:3px;font-family:inherit;font-size:11px;">
-        <option value="">All</option>
-        <option value="OPEN">Open</option>
-        <option value="CLOSED">Closed</option>
-        <option value="EXPIRED">Expired</option>
-      </select>
-    </label>
-    <button onclick="applyP()">▶ APPLY</button>
-    <button onclick="resetP()">✕ RESET</button>
-    <span id="pRowCount"></span>
-  </div>
-
-  
-  <div class="wrap">
-  <table id="ptbl">
-  <thead><tr><th onclick="sortTable('port',0)">Symbol</th><th onclick="sortTable('port',1)">Strike</th><th onclick="sortTable('port',2)">Expiry</th><th onclick="sortTable('port',3)">DTE</th><th onclick="sortTable('port',4)">Opened</th><th onclick="sortTable('port',5)">Prem Open</th><th onclick="sortTable('port',6)">Prem Now</th><th onclick="sortTable('port',7)">P&L $</th><th onclick="sortTable('port',8)">P&L %</th><th onclick="sortTable('port',9)">Spot</th><th onclick="sortTable('port',10)">Status</th></tr></thead>
-  <tbody id="ptbody">
-  
-  
-  
-  </tbody></table></div>
+<div class="fbar">
+  <label>Min ROM%:<input type="number" id="fRom" value="0" min="0"></label>
+  <label>Min RAY:<input type="number" id="fRay" value="0" min="0" step="0.1"></label>
+  <label>Max Sprd%:<input type="number" id="fSprd" value="100" min="0"></label>
+  <button onclick="applyS()">▶ APPLY</button>
+  <button onclick="resetS()">✕ RESET</button>
+  <span class="rcount" id="scan-count"></span>
 </div>
-
+<div class="wrap"><table><thead><tr><th onclick="sortT('scan',(0)">Sym</th><th onclick="sortT('scan',(1)">Price</th><th onclick="sortT('scan',(2)">Strike</th><th onclick="sortT('scan',(3)">Expiry</th><th onclick="sortT('scan',(4)">DTE</th><th onclick="sortT('scan',(5)">OTM%</th><th onclick="sortT('scan',(6)">Delta</th><th onclick="sortT('scan',(7)">IV%</th><th onclick="sortT('scan',(8)">Bid</th><th onclick="sortT('scan',(9)">Ask</th><th onclick="sortT('scan',(10)">Sprd%</th><th onclick="sortT('scan',(11)">Prem</th><th onclick="sortT('scan',(12)">ROM%</th><th onclick="sortT('scan',(13)">RAY</th><th onclick="sortT('scan',(14)">Vol</th><th onclick="sortT('scan',(15)">Bias</th><th onclick="sortT('scan',(16)">RSI</th><th onclick="sortT('scan',(17)">Earn</th></tr></thead><tbody id="scan-body"><tr style="background:#051a05"><td>SPY</td><td>$731.26</td><td>$672.00</td><td>2026-07-17</td><td>20</td><td>-8.1%</td><td>-0.046</td><td>22.5%</td><td>$1.06</td><td>$1.09</td><td>2.8%</td><td>$1.08</td><td>22.28%</td><td>9.828</td><td>113</td><td>NEUTRAL</td><td>44.2</td><td>N/A</td></tr>
+<tr style="background:#051a05"><td>QQQ</td><td>$706.14</td><td>$530.00</td><td>2026-07-24</td><td>27</td><td>-24.9%</td><td>-0.015</td><td>51.1%</td><td>$0.64</td><td>$0.70</td><td>9.0%</td><td>$0.67</td><td>16.88%</td><td>24.076</td><td>54</td><td>NEUTRAL</td><td>46.7</td><td>N/A</td></tr>
+</tbody></table></div>
+<div class="legend">
+  <div class="leg"><div class="sw" style="background:#051a05"></div>RAY≥5</div>
+  <div class="leg"><div class="sw" style="background:#051a10"></div>ROM≥30%</div>
+  <div class="leg"><div class="sw" style="background:#111800"></div>ROM≥12%</div>
+  <div class="leg"><div class="sw" style="background:#1a001a"></div>Sprd&gt;30%</div>
+  <div class="leg"><div class="sw" style="background:#1a0800"></div>Earnings</div>
+</div></div>
 <footer>
-  Put Premium Screener &nbsp;·&nbsp; Yahoo Finance (delayed) &nbsp;·&nbsp; 2026-06-27  08:34  ET &nbsp;·&nbsp;
-  <em>Not financial advice.</em>
+  Put Premium Screener &nbsp;·&nbsp; Yahoo Finance (delayed) &nbsp;·&nbsp; 2026-06-27  11:57  ET
+  &nbsp;·&nbsp; <em>Not financial advice.</em>
 </footer>
-
 <script>
-// ── tab switching ────────────────────────────────────────────
+let _tabCols = {};
 function switchTab(id){
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>{b.classList.remove('active');b.style.borderBottomColor='';b.style.color='';});
   document.getElementById('tab-'+id).classList.add('active');
-  event.target.classList.add('active');
+  const btn=event.target; btn.classList.add('active');
+  // re-count
+  ['scan','port','hist'].forEach(t=>{const el=document.getElementById(t+'-count');if(el)cntRows(t);});
 }
-
-// ── sort ────────────────────────────────────────────────────
-let _sd={};
-function sortTable(tbl,c){
-  const tbId = tbl==='scan'?'stbody':'ptbody';
-  const tb=document.getElementById(tbId);
-  if(!tb) return;
-  const rows=[...tb.rows];
-  const key=tbl+c; const asc=!_sd[key]; _sd[key]=asc;
+function sortT(tbl,c){
+  const tbody=document.getElementById(tbl+'-body'); if(!tbody)return;
+  const rows=[...tbody.rows];
+  const key=tbl+'_'+c; const asc=!_tabCols[key]; _tabCols[key]=asc;
   rows.sort((a,b)=>{
-    let av=a.cells[c]?.textContent.replace(/[$%+,]/g,'').trim()||'';
-    let bv=b.cells[c]?.textContent.replace(/[$%+,]/g,'').trim()||'';
+    let av=a.cells[c]?.textContent.replace(/[$%+,✔✗]/g,'').trim()||'';
+    let bv=b.cells[c]?.textContent.replace(/[$%+,✔✗]/g,'').trim()||'';
     const an=parseFloat(av),bn=parseFloat(bv);
     if(!isNaN(an)&&!isNaN(bn)) return asc?an-bn:bn-an;
     return asc?av.localeCompare(bv):bv.localeCompare(av);
   });
-  rows.forEach(r=>tb.appendChild(r));
-  if(tbl==='scan') sCnt(); else pCnt();
+  rows.forEach(r=>tbody.appendChild(r)); cntRows(tbl);
 }
-
-// ── scan filters ─────────────────────────────────────────────
-const sRows=[...document.querySelectorAll('#stbody tr')];
+function cntRows(tbl){
+  const tbody=document.getElementById(tbl+'-body'); if(!tbody)return;
+  const vis=[...tbody.rows].filter(r=>r.style.display!=='none').length;
+  const el=document.getElementById(tbl+'-count'); if(el) el.textContent=vis+' rows';
+}
+// scan filters
 function applyS(){
   const mr=parseFloat(document.getElementById('fRom')?.value)||0;
   const my=parseFloat(document.getElementById('fRay')?.value)||0;
   const ms=parseFloat(document.getElementById('fSprd')?.value)||9999;
-  sRows.forEach(r=>{
+  const tbody=document.getElementById('scan-body'); if(!tbody)return;
+  [...tbody.rows].forEach(r=>{
     const rom=parseFloat(r.cells[12]?.textContent)||0;
     const ray=parseFloat(r.cells[13]?.textContent)||0;
     const sprd=parseFloat(r.cells[10]?.textContent)||0;
     const pre=r.cells[10]?.textContent.includes('PRE');
     r.style.display=(rom>=mr&&ray>=my&&(pre||sprd<=ms))?'':'none';
-  }); sCnt();
+  }); cntRows('scan');
 }
 function resetS(){
   ['fRom','fRay','fSprd'].forEach(id=>{const e=document.getElementById(id);if(e)e.value=id==='fSprd'?100:0;});
-  sRows.forEach(r=>r.style.display=''); sCnt();
+  const tbody=document.getElementById('scan-body'); if(tbody)[...tbody.rows].forEach(r=>r.style.display='');
+  cntRows('scan');
 }
-function sCnt(){
-  const v=sRows.filter(r=>r.style.display!=='none').length;
-  const el=document.getElementById('sRowCount');
-  if(el) el.textContent=v+' rows shown';
-}
-
-// ── portfolio filters ─────────────────────────────────────────
-const pRows=[...document.querySelectorAll('#ptbody tr')];
+// portfolio filter
 function applyP(){
-  const sym=(document.getElementById('fSym')?.value||'').toUpperCase();
-  const st=document.getElementById('fStatus')?.value||'';
-  pRows.forEach(r=>{
-    const rsym=r.cells[0]?.textContent.toUpperCase()||'';
-    const rst=r.cells[10]?.textContent.toUpperCase()||'';
-    const ok=(!sym||rsym.includes(sym))&&(!st||rst===st);
-    r.style.display=ok?'':'none';
-  }); pCnt();
+  const sym=(document.getElementById('fPSym')?.value||'').toUpperCase();
+  const tbody=document.getElementById('port-body'); if(!tbody)return;
+  [...tbody.rows].forEach(r=>{
+    const rs=r.cells[0]?.textContent.toUpperCase()||'';
+    r.style.display=(!sym||rs.includes(sym))?'':'none';
+  }); cntRows('port');
 }
 function resetP(){
-  const s=document.getElementById('fSym'); if(s)s.value='';
-  const f=document.getElementById('fStatus'); if(f)f.value='';
-  pRows.forEach(r=>r.style.display=''); pCnt();
+  const e=document.getElementById('fPSym');if(e)e.value='';
+  const tbody=document.getElementById('port-body');if(tbody)[...tbody.rows].forEach(r=>r.style.display='');
+  cntRows('port');
 }
-function pCnt(){
-  const v=pRows.filter(r=>r.style.display!=='none').length;
-  const el=document.getElementById('pRowCount');
-  if(el) el.textContent=v+' rows shown';
+// history filters
+function applyH(){
+  const sym=(document.getElementById('fHSym')?.value||'').toUpperCase();
+  const out=document.getElementById('fHOut')?.value||'';
+  const tbody=document.getElementById('hist-body'); if(!tbody)return;
+  [...tbody.rows].forEach(r=>{
+    const rs=r.cells[0]?.textContent.toUpperCase()||'';
+    const ro=r.cells[10]?.textContent||'';
+    r.style.display=((!sym||rs.includes(sym))&&(!out||ro===out))?'':'none';
+  }); cntRows('hist');
 }
-
-sCnt(); pCnt();
+function resetH(){
+  ['fHSym'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
+  const s=document.getElementById('fHOut');if(s)s.value='';
+  const tbody=document.getElementById('hist-body');if(tbody)[...tbody.rows].forEach(r=>r.style.display='');
+  cntRows('hist');
+}
+document.addEventListener('DOMContentLoaded',()=>['scan','port','hist'].forEach(cntRows));
 </script>
 </body></html>
