@@ -68,7 +68,7 @@ footer{text-align:center;color:var(--dim);font-size:10px;
   <h1>◆ PUT PREMIUM SCREENER</h1>
   <div class="meta">
     
-    Updated: <span>2026-06-26  15:43  ET</span>
+    Updated: <span>2026-06-27  08:34  ET</span>
   </div>
   <div class="badges">
     <div class="badge delay">Yahoo Finance (delayed)</div>
@@ -77,16 +77,16 @@ footer{text-align:center;color:var(--dim);font-size:10px;
 </header>
 
 <div class="tab-bar">
-  
+  <button class="tab-btn active" onclick="switchTab('scan')">📊 Scan Results (1)</button>
   
 </div>
 
 <!-- ═══════ SCAN TAB ═══════ -->
-<div class="tab-panel " id="tab-scan">
+<div class="tab-panel active" id="tab-scan">
   <div class="sumbar">
-    <div class="stat">Tickers <div class="v">0</div></div>
-    <div class="stat">ROM≥12% <div class="v">0</div></div>
-    <div class="stat">RAY≥5 <div class="v">0</div></div>
+    <div class="stat">Tickers <div class="v">1</div></div>
+    <div class="stat">ROM≥12% <div class="v">1</div></div>
+    <div class="stat">RAY≥5 <div class="v">1</div></div>
     <div class="stat">Source <div class="v">Yahoo Finance (delayed)</div></div>
   </div>
   <div class="fbar">
@@ -100,7 +100,8 @@ footer{text-align:center;color:var(--dim);font-size:10px;
   <div class="wrap">
   <table id="stbl">
   <thead><tr><th onclick="sortTable('scan',0)">Symbol</th><th onclick="sortTable('scan',1)">Price</th><th onclick="sortTable('scan',2)">Strike</th><th onclick="sortTable('scan',3)">Expiry</th><th onclick="sortTable('scan',4)">DTE</th><th onclick="sortTable('scan',5)">OTM %</th><th onclick="sortTable('scan',6)">Delta</th><th onclick="sortTable('scan',7)">IV %</th><th onclick="sortTable('scan',8)">Bid</th><th onclick="sortTable('scan',9)">Ask</th><th onclick="sortTable('scan',10)">Sprd %</th><th onclick="sortTable('scan',11)">Premium</th><th onclick="sortTable('scan',12)">ROM %</th><th onclick="sortTable('scan',13)">RAY</th><th onclick="sortTable('scan',14)">Vol</th><th onclick="sortTable('scan',15)">Bias</th><th onclick="sortTable('scan',16)">RSI</th><th onclick="sortTable('scan',17)">Earnings</th></tr></thead>
-  <tbody id="stbody"></tbody>
+  <tbody id="stbody"><tr style="background:#051a05"><td>QQQ</td><td>$706.14</td><td>$530.00</td><td>2026-07-24</td><td>27</td><td>-24.9%</td><td>-0.015</td><td>51.1%</td><td>$0.64</td><td>$0.70</td><td>9.0%</td><td>$0.67</td><td>16.88%</td><td>24.076</td><td>54</td><td>NEUTRAL</td><td>46.7</td><td>N/A</td></tr>
+</tbody>
   </table>
   </div>
   <div class="legend">
@@ -149,7 +150,7 @@ footer{text-align:center;color:var(--dim);font-size:10px;
 </div>
 
 <footer>
-  Put Premium Screener &nbsp;·&nbsp; Yahoo Finance (delayed) &nbsp;·&nbsp; 2026-06-26  15:43  ET &nbsp;·&nbsp;
+  Put Premium Screener &nbsp;·&nbsp; Yahoo Finance (delayed) &nbsp;·&nbsp; 2026-06-27  08:34  ET &nbsp;·&nbsp;
   <em>Not financial advice.</em>
 </footer>
 
